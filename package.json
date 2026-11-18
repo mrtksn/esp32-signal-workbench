@@ -1,0 +1,19 @@
+{
+  "name": "esp32-signal-workbench",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Configurable ESP32 digital signal generator, logic analyzer and ADC workbench",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test tests/web.test.cjs",
+    "test:native": "cc -std=c99 -Wall -Wextra -Werror -fsanitize=undefined -Ifirmware/main tests/sniff_core_test.c firmware/main/sniff_core.c -lm -o /tmp/signal-workbench-analysis-test && /tmp/signal-workbench-analysis-test",
+    "serve": "python3 -m http.server 8765 --bind 127.0.0.1 --directory web"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrtksn/esp32-signal-workbench.git"
+  },
+  "homepage": "https://mrtksn.github.io/esp32-signal-workbench/"
+}
